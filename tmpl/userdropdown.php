@@ -1,14 +1,15 @@
 <?php
 /**
- * Custom Fields - Userdropdown plugin for Joomla
- *
- * @author Joomill (info@joomill-extensions.com)
- * @copyright Copyright (c) 2017 Joomill
- * @license GNU Public License
- * @link https://www.joomill-extensions.com/
+ *  package: Custom Fields - User Dropdown plugin - FREE  Version
+ *  copyright: Copyright (c) 2020. Jeroen Moolenschot | Joomill
+ *  license: GNU General Public License version 3 or later
+ *  link: https://www.joomill-extensions.com
  */
 
+// No direct access.
 defined('_JEXEC') or die;
+
+use Joomla\CMS\Factory;
 
 $value = $field->value;
 $displayname = $field->fieldparams->get('displayname', 'both');
@@ -28,7 +29,7 @@ foreach ($value as $userId)
 		continue;
 	}
 
-	$user = JFactory::getUser($userId);
+	$user = Factory::getUser($userId);
 
 	if ($user)
 	{

@@ -1,14 +1,16 @@
 <?php
 /**
- * Custom Fields - Userdropdown plugin for Joomla
- *
- * @author Joomill (info@joomill-extensions.com)
- * @copyright Copyright (c) 2017 Joomill
- * @license GNU Public License
- * @link https://www.joomill-extensions.com/
+ *  package: Custom Fields - User Dropdown plugin - FREE  Version
+ *  copyright: Copyright (c) 2020. Jeroen Moolenschot | Joomill
+ *  license: GNU General Public License version 3 or later
+ *  link: https://www.joomill-extensions.com
  */
 
-defined('_JEXEC') or die('Restricted access');
+// No direct access.
+defined('_JEXEC') or die;
+
+use Joomla\CMS\Factory;
+use Joomla\CMS\HTML\HTMLHelper;
 
 JFormHelper::loadFieldClass('list');
 
@@ -25,7 +27,7 @@ class JFormFieldUserdropdown extends JFormFieldList
 		$multiple = $this->getAttribute('multiple','false');
 		
 		// Get a db connection.
-		$db = JFactory::getDbo();
+		$db = Factory::getDbo();
 
 		// Create a new query object.
 		$query = $db->getQuery(true);
@@ -69,7 +71,7 @@ class JFormFieldUserdropdown extends JFormFieldList
 		
 		// "Please select" option when parameter multiple is false.
 		if ($multiple == "false") {
-			$options[] = JHTML::_('select.option', '', '- Please select -' );
+			$options[] = HTMLHelper::_('select.option', '', '- Please select -' );
 		}
 
 		foreach ($results as $result) 
@@ -77,14 +79,14 @@ class JFormFieldUserdropdown extends JFormFieldList
 			switch ($dropdownname)
 				{
 					case 'name':
-						$options[] = JHtml::_('select.option', $result->id, $result->name);
+						$options[] = HTMLHelper::_('select.option', $result->id, $result->name);
 						break;
 					case 'username':
-						$options[] = JHtml::_('select.option', $result->id, $result->username);
+						$options[] = HTMLHelper::_('select.option', $result->id, $result->username);
 						break;
 					case 'both':
 					default:
-						$options[] = JHtml::_('select.option', $result->id, $result->name.' ('. $result->username .')');
+						$options[] = HTMLHelper::_('select.option', $result->id, $result->name.' ('. $result->username .')');
 						break;
 				}
 		}

@@ -1,11 +1,9 @@
 <?php
 /**
- * Custom Fields - Userdropdown plugin for Joomla
- *
- * @author Joomill (info@joomill-extensions.com)
- * @copyright Copyright (c) 2017 Joomill
- * @license GNU Public License
- * @link https://www.joomill-extensions.com/
+ *  package: Custom Fields - User Dropdown plugin - FREE  Version
+ *  copyright: Copyright (c) 2020. Jeroen Moolenschot | Joomill
+ *  license: GNU General Public License version 3 or later
+ *  link: https://www.joomill-extensions.com
  */
 
 defined('_JEXEC') or die;
@@ -14,7 +12,6 @@ JLoader::import('components.com_fields.libraries.fieldsplugin', JPATH_ADMINISTRA
 
 class PlgFieldsUserdropdown extends FieldsPlugin
 {
-
 
 	public function onCustomFieldsPrepareDom($field, DOMElement $parent, JForm $form)
 	{
