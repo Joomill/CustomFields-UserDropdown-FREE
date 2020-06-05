@@ -51,6 +51,11 @@
 				label="PLG_FIELDS_USERDROPDOWN_PARAMS_MULTIPLE_LABEL" 
 				description="PLG_FIELDS_USERDROPDOWN_PARAMS_MULTIPLE_DESC">
 			</field>
+
+			<field
+				name=""
+				type="upgrade"
+			/>
 			
 		</fieldset>
 		
