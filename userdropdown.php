@@ -12,21 +12,23 @@ JLoader::import('components.com_fields.libraries.fieldsplugin', JPATH_ADMINISTRA
 
 class PlgFieldsUserdropdown extends FieldsPlugin
 {
+    public function onCustomFieldsPrepareDom($field, DOMElement $parent, JForm $form)
+    {
+        $fieldNode = parent::onCustomFieldsPrepareDom($field, $parent, $form);
 
-	public function onCustomFieldsPrepareDom($field, DOMElement $parent, JForm $form)
-	{
-		$fieldNode = parent::onCustomFieldsPrepareDom($field, $parent, $form);
+        if (!$fieldNode)
+        {
+            return $fieldNode;
+        }
 
-		if (!$fieldNode)
-		{
-			return $fieldNode;
-		}
+        $form->addFieldPath(JPATH_PLUGINS . '/fields/userdropdown/elements/');
 
-		$form->addFieldPath(JPATH_PLUGINS . '/fields/userdropdown/elements/');
+        $fieldNode->setAttribute('type', 'Userdropdown');
 
-		$fieldNode->setAttribute('type', 'Userdropdown');
-		
-		return $fieldNode;
-	}
+        // Get selected parameter for multiple selection.
+        $multiple = $field->fieldparams->get('multiple','false');
+        $fieldNode->setAttribute('multiple', $multiple);
 
+        return $fieldNode;
+    }
 }
