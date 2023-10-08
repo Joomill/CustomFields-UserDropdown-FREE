@@ -1,7 +1,7 @@
 <?php
-/**
+/*
  *  package: Custom Fields - User Dropdown plugin - FREE  Version
- *  copyright: Copyright (c) 2020. Jeroen Moolenschot | Joomill
+ *  copyright: Copyright (c) 2023. Jeroen Moolenschot | Joomill
  *  license: GNU General Public License version 3 or later
  *  link: https://www.joomill-extensions.com
  */
@@ -11,16 +11,23 @@ defined('_JEXEC') or die;
 
 use Joomla\CMS\Factory;
 use Joomla\CMS\HTML\HTMLHelper;
+use Joomla\CMS\Form\FormHelper;
+use Joomla\CMS\Form\Field\ListField;
 
-JFormHelper::loadFieldClass('list');
+FormHelper::loadFieldClass('list');
 
-class JFormFieldUserdropdown extends JFormFieldList
+class JFormFieldUserdropdown extends ListField
 {
 
 	protected function getOptions()
 	{
 
 		// Get selected parameters.
+		$currentusergroup = $this->getAttribute('currentusergroup', "");
+		$user = Factory::getUser();
+		$groups = $user->groups;
+		$currentusergroups = join(', ', $groups);
+
 		$usergroup = $this->getAttribute('usergroup', "");
 		$ordering = $this->getAttribute('ordering', "name");
 		$dropdownname = $this->getAttribute('dropdownname', "both");
@@ -36,10 +43,16 @@ class JFormFieldUserdropdown extends JFormFieldList
 		$query->select ($db->quoteName(array('u.id', 'u.name', 'u.username')));
 		$query->from($db->quoteName('#__users', 'u'));
 	
-		// Don't compare usergroup when "all"-option is selected.
-		if ($usergroup != "") {
+		// Select all records from the user current users usergroups
+		if ($currentusergroup != "") {
 			$query->join('INNER', $db->quoteName('#__user_usergroup_map', 'm') . ' ON (' . $db->quoteName('u.id') . ' = ' . $db->quoteName('m.user_id') . ')');
-			$query->where (($db->quoteName('m.group_id')) .'='. $usergroup);
+			$query->where (($db->quoteName('m.group_id')) .' IN ('. $currentusergroups. ')');
+		}
+
+		// Don't compare usergroup when "all"-option is selected.
+		elseif ($usergroup != "") {
+			$query->join('INNER', $db->quoteName('#__user_usergroup_map', 'm') . ' ON (' . $db->quoteName('u.id') . ' = ' . $db->quoteName('m.user_id') . ')');
+			$query->where (($db->quoteName('m.group_id')) .' IN ('. $usergroup. ')');
 		}
 		// Group by id to show user once in dropdown.
 		$query->group($db->quoteName(array('u.id')));
