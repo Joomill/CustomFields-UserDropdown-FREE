@@ -34,9 +34,9 @@ class JFormFieldUserdropdown extends ListField
         $multiple = $this->getAttribute('multiple', 'false');
 
         // Get a db connection.
-        $db = Factory::getDbo();
+	    $db    = Factory::getContainer()->get('DatabaseDriver');
 
-        // Create a new query object.
+	    // Create a new query object.
         $query = $db->getQuery(true);
 
         // Select all records from the user profile table where usergroup is the selected usergroup.
