@@ -18,29 +18,29 @@ use Joomla\DI\ServiceProviderInterface;
 use Joomla\Event\DispatcherInterface;
 
 return new class () implements ServiceProviderInterface {
-    /**
-     * Registers the service provider with a DI container.
-     *
-     * @param Container $container The DI container.
-     *
-     * @return  void
-     *
-     * @since   4.3.0
-     */
-    public function register(Container $container)
-    {
-        $container->set(
-            PluginInterface::class,
-            function (Container $container) {
-                $subject = $container->get(DispatcherInterface::class);
-                $plugin = new Userdropdown(
-                    $subject,
-                    (array)PluginHelper::getPlugin('fields', 'userdropdown')
-                );
-                $plugin->setApplication(Factory::getApplication());
+	/**
+	 * Registers the service provider with a DI container.
+	 *
+	 * @param   Container  $container  The DI container.
+	 *
+	 * @return  void
+	 *
+	 * @since   4.3.0
+	 */
+	public function register(Container $container)
+	{
+		$container->set(
+			PluginInterface::class,
+			function (Container $container) {
+				$subject = $container->get(DispatcherInterface::class);
+				$plugin  = new Userdropdown(
+					$subject,
+					(array) PluginHelper::getPlugin('fields', 'userdropdown')
+				);
+				$plugin->setApplication(Factory::getApplication());
 
-                return $plugin;
-            }
-        );
-    }
+				return $plugin;
+			}
+		);
+	}
 };

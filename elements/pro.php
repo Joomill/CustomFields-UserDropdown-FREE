@@ -17,12 +17,13 @@ FormHelper::loadFieldClass('list');
 
 class JFormFieldPRO extends ListField
 {
-    protected $type = 'pro';
+	protected $type = 'pro';
 
-    protected function getInput()
-    {
-        $text = Text::_('PLG_FIELDS_USERDROPDOWN_PARAMS_PRO_ONLY');
-        return
-            '<code>' . $text . '</code>';
-    }
+	protected function getInput()
+	{
+		$text = Text::_('PLG_FIELDS_USERDROPDOWN_PARAMS_PRO_ONLY');
+
+		return
+			'<code>' . $text . '</code>';
+	}
 }
