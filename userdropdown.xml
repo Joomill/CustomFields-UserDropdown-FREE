@@ -2,8 +2,8 @@
 <extension type="plugin" group="fields" method="upgrade">
     <name>plg_fields_userdropdown</name>
     <author>Joomill Extensions</author>
-    <creationDate>08-10-2023</creationDate>
-    <copyright>(C) 2023 Joomill.</copyright>
+    <creationDate>March 2025</creationDate>
+    <copyright>(C) 2025 Joomill Extensions</copyright>
     <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
     <authorEmail>info@joomill-extensions.com</authorEmail>
     <authorUrl>https://www.joomill-extensions.com</authorUrl>
