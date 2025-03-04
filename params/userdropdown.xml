@@ -1,63 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <form>
-	<fields name="fieldparams">	
-		<fieldset  
-			name="fieldparams"
-			addfieldpath="/plugins/fields/userdropdown/elements"
-	>
-		
-			<field 
-				name="usergroup" 
-				type="pro" 
-				default="" 
-				label="PLG_FIELDS_USERDROPDOWN_PARAMS_USERGROUP_LABEL" 
-				description="PLG_FIELDS_USERDROPDOWN_PARAMS_USERGROUP_DESC">
-			</field>
+    <fields name="fieldparams">
+        <fieldset
+                name="fieldparams"
+                addfieldpath="/plugins/fields/userdropdown/elements"
+        >
 
-			<field 
-				name="ordering" 
-				type="list" 
-				default="" 
-				label="PLG_FIELDS_USERDROPDOWN_PARAMS_ORDERING_LABEL" 
-				description="PLG_FIELDS_USERDROPDOWN_PARAMS_ORDERING_DESC">
-				<option value="name">PLG_FIELDS_USERDROPDOWN_PARAMS_ORDERING_NAME</option>
-				<option value="username">PLG_FIELDS_USERDROPDOWN_PARAMS_ORDERING_USERNAME</option>
-				<option value="id">PLG_FIELDS_USERDROPDOWN_PARAMS_ORDERING_ID</option>
-			</field>
+            <field
+                    name="usergroup"
+                    type="pro"
+                    default=""
+                    label="PLG_FIELDS_USERDROPDOWN_PARAMS_USERGROUP_LABEL"
+                    description="PLG_FIELDS_USERDROPDOWN_PARAMS_USERGROUP_DESC">
+            </field>
 
-			<field 
-				name="dropdownname" 
-				type="list" 
-				default="" 
-				label="PLG_FIELDS_USERDROPDOWN_PARAMS_DROPDOWNNAME_LABEL" 
-				description="PLG_FIELDS_USERDROPDOWN_PARAMS_DROPDOWNNAME_DESC">
-				<option value="name">PLG_FIELDS_USERDROPDOWN_PARAMS_DROPDOWNNAME_NAME</option>
-				<option value="username">PLG_FIELDS_USERDROPDOWN_PARAMS_DROPDOWNNAME_USERNAME</option>
-				<option value="both">PLG_FIELDS_USERDROPDOWN_PARAMS_DROPDOWNNAME_BOTH</option>
-			</field>
+            <field
+                    name="ordering"
+                    type="list"
+                    default=""
+                    label="PLG_FIELDS_USERDROPDOWN_PARAMS_ORDERING_LABEL"
+                    description="PLG_FIELDS_USERDROPDOWN_PARAMS_ORDERING_DESC">
+                <option value="name">PLG_FIELDS_USERDROPDOWN_PARAMS_ORDERING_NAME</option>
+                <option value="username">PLG_FIELDS_USERDROPDOWN_PARAMS_ORDERING_USERNAME</option>
+                <option value="id">PLG_FIELDS_USERDROPDOWN_PARAMS_ORDERING_ID</option>
+            </field>
 
-			<field 
-				name="displayname" 
-				type="pro" 
-				default="username" 
-				label="PLG_FIELDS_USERDROPDOWN_PARAMS_DISPLAYNAME_LABEL" 
-				description="PLG_FIELDS_USERDROPDOWN_PARAMS_DISPLAYNAME_DESC">
-			</field>
+            <field
+                    name="dropdownname"
+                    type="list"
+                    default=""
+                    label="PLG_FIELDS_USERDROPDOWN_PARAMS_DROPDOWNNAME_LABEL"
+                    description="PLG_FIELDS_USERDROPDOWN_PARAMS_DROPDOWNNAME_DESC">
+                <option value="name">PLG_FIELDS_USERDROPDOWN_PARAMS_DROPDOWNNAME_NAME</option>
+                <option value="username">PLG_FIELDS_USERDROPDOWN_PARAMS_DROPDOWNNAME_USERNAME</option>
+                <option value="both">PLG_FIELDS_USERDROPDOWN_PARAMS_DROPDOWNNAME_BOTH</option>
+            </field>
 
-			<field 
-				name="multiple" 
-				type="pro"
-				default="false" 
-				label="PLG_FIELDS_USERDROPDOWN_PARAMS_MULTIPLE_LABEL" 
-				description="PLG_FIELDS_USERDROPDOWN_PARAMS_MULTIPLE_DESC">
-			</field>
+            <field
+                    name="displayname"
+                    type="pro"
+                    default="username"
+                    label="PLG_FIELDS_USERDROPDOWN_PARAMS_DISPLAYNAME_LABEL"
+                    description="PLG_FIELDS_USERDROPDOWN_PARAMS_DISPLAYNAME_DESC">
+            </field>
 
-			<field
-				name=""
-				type="upgrade"
-			/>
-			
-		</fieldset>
-		
-	</fields>
+            <field
+                    name="multiple"
+                    type="pro"
+                    default="false"
+                    label="PLG_FIELDS_USERDROPDOWN_PARAMS_MULTIPLE_LABEL"
+                    description="PLG_FIELDS_USERDROPDOWN_PARAMS_MULTIPLE_DESC">
+            </field>
+
+            <field
+                    name=""
+                    type="upgrade"
+            />
+
+        </fieldset>
+
+    </fields>
 </form>

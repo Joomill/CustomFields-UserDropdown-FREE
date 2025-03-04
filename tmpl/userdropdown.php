@@ -14,28 +14,23 @@ use Joomla\CMS\Factory;
 $value = $field->value;
 $displayname = $field->fieldparams->get('displayname', 'both');
 
-if ($value == '')
-{
+if ($value == '') {
     return;
 }
 
-$value = (array) $value;
+$value = (array)$value;
 $texts = array();
 
-foreach ($value as $userId)
-{
-    if (!$userId)
-    {
+foreach ($value as $userId) {
+    if (!$userId) {
         continue;
     }
 
     $user = Factory::getUser($userId);
 
-    if ($user)
-    {
+    if ($user) {
 
-        switch ($displayname)
-        {
+        switch ($displayname) {
             case 'name':
                 $texts[] = $user->name;
                 break;
@@ -44,7 +39,7 @@ foreach ($value as $userId)
                 break;
             case 'both':
             default:
-                $texts[] = $user->name.' ('. $user->username .')';
+                $texts[] = $user->name . ' (' . $user->username . ')';
                 break;
         }
 
