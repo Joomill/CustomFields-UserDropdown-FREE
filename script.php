@@ -67,12 +67,31 @@ class plgFieldsUserdropdownInstallerScript
         return true;
     }
 
-    /**
-     * Set the plugin to enabled on installation
-     */
-    public function install($parent)
-    {
-        jimport('joomla.filesystem.file');
-        Factory::getDBO()->setQuery("UPDATE `#__extensions` SET `enabled` = 1 WHERE `type` = 'plugin' AND`element` = 'userdropdown'")->execute();
-    }
+	public function install($parent)
+	{
+		// Enable the extension
+		$this->enablePlugin();
+
+		return true;
+	}
+
+	private function enablePlugin()
+	{
+		try
+		{
+			$db    = Factory::getContainer()->get('DatabaseDriver');
+			$query = $db->getQuery(true)
+				->update($db->qn('#__extensions'))
+				->set($db->qn('enabled') . ' = ' . $db->q(1))
+				->where('type = ' . $db->q('plugin'))
+				->where('folder = ' . $db->q('fields'))
+				->where('element = ' . $db->q('userdropdown'));
+			$db->setQuery($query);
+			$db->execute();
+		}
+		catch (\Exception $e)
+		{
+			return;
+		}
+	}
 }
