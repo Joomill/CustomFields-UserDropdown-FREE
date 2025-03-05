@@ -7,6 +7,7 @@
  *  link: https://www.joomill-extensions.com
  */
 
+// No direct access.
 \defined('_JEXEC') or die;
 
 use Joomill\Plugin\Fields\Userdropdown\Extension\Userdropdown;

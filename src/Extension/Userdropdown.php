@@ -9,12 +9,11 @@
 
 namespace Joomill\Plugin\Fields\Userdropdown\Extension;
 
+// No direct access.
+\defined('_JEXEC') or die;
+
 use Joomla\CMS\Form\Form;
 use Joomla\Component\Fields\Administrator\Plugin\FieldsPlugin;
-
-// phpcs:disable PSR1.Files.SideEffects
-\defined('_JEXEC') or die;
-// phpcs:enable PSR1.Files.SideEffects
 
 /**
  * Fields Text Plugin
