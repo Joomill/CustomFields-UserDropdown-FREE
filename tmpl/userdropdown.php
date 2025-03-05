@@ -10,6 +10,7 @@
 defined('_JEXEC') or die;
 
 use Joomla\CMS\Factory;
+use Joomla\CMS\User\UserFactoryInterface;
 
 $value       = $field->value;
 $displayname = $field->fieldparams->get('displayname', 'both');
@@ -29,7 +30,7 @@ foreach ($value as $userId)
 		continue;
 	}
 
-	$user = Factory::getUser($userId);
+	$user = Factory::getContainer()->get(UserFactoryInterface::class)->loadUserById($userId);
 
 	if ($user)
 	{
