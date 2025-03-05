@@ -13,6 +13,7 @@ namespace Joomill\Plugin\Fields\Userdropdown\Extension;
 \defined('_JEXEC') or die;
 
 use Joomla\CMS\Form\Form;
+use Joomla\CMS\Form\FormHelper;
 use Joomla\Component\Fields\Administrator\Plugin\FieldsPlugin;
 
 /**
@@ -31,14 +32,11 @@ final class Userdropdown extends FieldsPlugin
 			return $fieldNode;
 		}
 
-		$form->addFieldPath(JPATH_PLUGINS . '/fields/userdropdown/elements/');
-
-		$fieldNode->setAttribute('type', 'Userdropdown');
-
 		// Get selected parameter for multiple selection.
 		$multiple = $field->fieldparams->get('multiple', 'false');
 		$fieldNode->setAttribute('multiple', $multiple);
 
+		FormHelper::addFieldPrefix('Joomill\Plugin\Fields\Userdropdown\Field');
 		return $fieldNode;
 	}
 }

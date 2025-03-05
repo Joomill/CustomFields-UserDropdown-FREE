@@ -6,20 +6,20 @@
  *  link: https://www.joomill-extensions.com
  */
 
+namespace Joomill\Plugin\Fields\Userdropdown\Field;
+
 // No direct access.
 defined('_JEXEC') or die;
 
 use Joomla\CMS\Factory;
 use Joomla\CMS\Form\Field\ListField;
-use Joomla\CMS\Form\FormHelper;
 use Joomla\CMS\HTML\HTMLHelper;
 
-FormHelper::loadFieldClass('list');
-
-class JFormFieldUserdropdown extends ListField
+class UserdropdownField extends ListField
 {
+	protected $type = 'userdropdown';
 
-	protected function getOptions()
+	protected function getOptions(): array
 	{
 
 		// Get selected parameters.

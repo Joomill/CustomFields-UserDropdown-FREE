@@ -6,12 +6,14 @@
  *  link: https://www.joomill-extensions.com
  */
 
+namespace Joomill\Plugin\Fields\Userdropdown\Field;
+
 // No direct access.
 defined('_JEXEC') or die;
 
 use Joomla\CMS\Form\FormField;
 
-class JFormFieldUpgrade extends FormField
+class UpgradeField extends FormField
 {
 	protected $type = 'upgrade';
 
